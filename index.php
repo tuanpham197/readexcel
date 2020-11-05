@@ -14,8 +14,7 @@ $objData->setReadDataOnly(true);
 // Load dữ liệu sang dạng đối tượng
 $objPHPExcel = $objData->load($file);
 
-//Lấy ra số trang sử dụng phương thức getSheetCount();
-// Lấy Ra tên trang sử dụng getSheetNames();
+
 
 //Chọn trang cần truy xuất
 $sheet = $objPHPExcel->setActiveSheetIndex(0);
@@ -32,7 +31,6 @@ $TotalCol = PHPExcel_Cell::columnIndexFromString($LastColumn);
 $data = [];
 
 //Tiến hành lặp qua từng ô dữ liệu
-//----Lặp dòng, Vì dòng đầu là tiêu đề cột nên chúng ta sẽ lặp giá trị từ dòng 2
 
 $tmp = 0;
 $str = "";
@@ -44,8 +42,9 @@ for ($i = 1; $i <= $Totalrow; $i++) {
     // $str .= "('_HOTSALE_".$sheet->getCellByColumnAndRow(2, $i)->getValue().$sheet->getCellByColumnAndRow(1, $i)->getValue()."','".$sheet->getCellByColumnAndRow(0, $i)->getValue()."'),"."</br>";
     $str .= "('".$sheet->getCellByColumnAndRow(0, $i)->getValue()."_HOME_HOTSALE".$sheet->getCellByColumnAndRow(2, $i)->getValue().$sheet->getCellByColumnAndRow(3, $i)->getValue()."','".$sheet->getCellByColumnAndRow(1, $i)->getValue()."'),"."</br>";
 }
+
 echo $str;
-echo $tmp;
+echo "Tổng số sản phẩm: ".$tmp;
 //Hiển thị mảng dữ liệu
 echo '<pre>';
 var_dump($data);
