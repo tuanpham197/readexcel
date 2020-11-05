@@ -3,7 +3,7 @@
 require_once 'PHPExcel/Classes/PHPExcel.php';
 
 //Đường dẫn file
-$file = 'hot/mainpage.xlsx';
+$file = 'HOTSALE_2210/hotsale.xlsx';
 //Tiến hành xác thực file
 $objFile = PHPExcel_IOFactory::identify($file);
 $objData = PHPExcel_IOFactory::createReader($objFile);
@@ -41,11 +41,13 @@ for ($i = 1; $i <= $Totalrow; $i++) {
     $tmp++;
     // $star_date = substr($sheet->getCellByColumnAndRow(2, $i)->getValue(),0,4).'-'.substr($sheet->getCellByColumnAndRow(2, $i)->getValue(),4,2).'-'.substr($sheet->getCellByColumnAndRow(2, $i)->getValue(),6,2);
     // $end_date = substr($sheet->getCellByColumnAndRow(3, $i)->getValue(),0,4).'-'.substr($sheet->getCellByColumnAndRow(3, $i)->getValue(),4,2).'-'.substr($sheet->getCellByColumnAndRow(3, $i)->getValue(),6,2);
-    // $str .= "('_HOTSALE_".$sheet->getCellByColumnAndRow(2, $i)->getValue().$sheet->getCellByColumnAndRow(1, $i)->getValue()."','".$sheet->getCellByColumnAndRow(0, $i)->getValue()."'),"."</br>";
-    $str .= "('".$sheet->getCellByColumnAndRow(0, $i)->getValue()."_HOME_HOTSALE".$sheet->getCellByColumnAndRow(2, $i)->getValue().$sheet->getCellByColumnAndRow(3, $i)->getValue()."','".$sheet->getCellByColumnAndRow(1, $i)->getValue()."'),"."</br>";
+    $str .= "('_HOTSALE_".$sheet->getCellByColumnAndRow(2, $i)->getValue().$sheet->getCellByColumnAndRow(1, $i)->getValue()."','".$sheet->getCellByColumnAndRow(0, $i)->getValue()."'),"."</br>";
+    //$str .= "('HOME_HOTSALE_2','".$sheet->getCellByColumnAndRow(0, $i)->getValue()."'),"."</br>";
 }
 echo $str;
 echo $tmp;
 //Hiển thị mảng dữ liệu
 echo '<pre>';
 var_dump($data);
+
+echo "123";
