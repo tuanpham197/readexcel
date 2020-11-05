@@ -3,7 +3,7 @@
 require_once 'PHPExcel/Classes/PHPExcel.php';
 
 //Đường dẫn file
-$file = 'hot/mainpage.xlsx';
+$file = 'HotSALE_0511/mainpage.xlsx';
 //Tiến hành xác thực file
 $objFile = PHPExcel_IOFactory::identify($file);
 $objData = PHPExcel_IOFactory::createReader($objFile);
